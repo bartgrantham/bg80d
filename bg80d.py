@@ -101,7 +101,8 @@ def parse_args():
     if 'format' in args:
         pass  # TODO
 
-start = end = offset = None
+start = end = None
+offset = 0
 strides = {}
 annotations = {}
 decodemask = {}
@@ -189,5 +190,5 @@ for byte in uchars:
         else: spec = opcode_specs["NP"][opcode[-1]]
 
     for i in range(0, spec['extra']):  param.append(uchars.next())
-    print_disasm(cur, opcode, param, spec)
+    print_disasm(cur + offset, opcode, param, spec)
     cur += len(opcode) + spec['extra']
