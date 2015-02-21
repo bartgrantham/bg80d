@@ -16,16 +16,16 @@ Also, it has some features that I've found helpful in my documenting old Z80 cod
 
 `cat some_z80_rom.bin | ./bg80d.py`
 
-You can pass in various input files that help bg80d understand how you want it to interpret the file.  In short, the range/skip/stride
+You can pass in various input files that help bg80d understand how you want it to interpret the file.  In short, the range/skip/stride files have the following format:
 ```
 # comments on lines by themselves are ignored, as are blank lines
 
 0-7       # comments after rangespecs become part of the annotation stream
-$68-$7c   # you can use one decimal format and two hex formats for memspecs:  1000 == $3e8 == 0x3e8
+$68-$7c   # you can use one decimal format and two hex formats for memspecs:  1000 or $3e8 or 0x3e8
 0x7D-$8c  # the two hex formats are case-insensitive, and you can mix and match (probably not a good idea)
 ```
 
-Annotation files are any parsable memspec in the first column (1000 == $3e8 == 0x3e8) on a line by itself, followed by annotations.  The annotation(s) will be output immediately before the decoded memory location:
+Annotation files are any parsable memspec in the first column (1000 or $3e8 or 0x3e8) on a line by itself, followed by annotations.  The annotation(s) will be output immediately before the decoded memory location:
 ```
 0
 ;;; RST0 - __start()
