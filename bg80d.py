@@ -67,7 +67,7 @@ def parse_args():
     args = dict((k.lstrip('-'), v.split(',')) for k, v in argspairs)
     for k in ['start', 'end', 'offset']:
         if k in args:
-            globals()[k] = memspec(args[k])
+            globals()[k] = memspec(args[k][0])
     if 'ranges' in args:
         for rangefile in args['ranges']:
             for (start, end, comment) in parse_ranges(open(rangefile)):
