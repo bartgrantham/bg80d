@@ -186,7 +186,7 @@ ab | 0 |  XOR | XOR A, E    |    A |    E | A^=E             | XOR of register E
 ac | 0 |  XOR | XOR A, H    |    A |    H | A^=H             | XOR of register H to register A
 ad | 0 |  XOR | XOR A, L    |    A |    L | A^=L             | XOR of register L to register A
 ae | 0 |  XOR | XOR A, (HL) |    A | (HL) | A^=$HL           | XOR of memory $HL to register A
-af | 0 |  XOR | XOR A, A    |    A |    A | A^=A             | XOR of register A to register A
+af | 0 |  XOR | XOR A, A    |    A |    A | A^=A             | Clear register A
 #op|xtr| type | mnemonic    | dest | src  | summary          | description
 b0 | 0 |   OR | OR A, B     |    A |    B | A|=B             | OR of register B to register A
 b1 | 0 |   OR | OR A, C     |    A |    C | A|=C             | OR of register C to register A
