@@ -12,6 +12,8 @@ Instead of attempting to decode the opcode in code (heh) I broke the Z80 opcode 
 
 Also, it has some features that I've found helpful in my documenting old Z80 code.  Code and data tend to be intertwined pretty badly in at least the Pac-Man ROM so I included the capability to specify ranges to decode/not decode, mixing in a file of annotations, and some other tricks.
 
+Finally I include, _as far as I know_, all the undocumented opcodes.  7 tables of prefixes * 256 = 1792 opcodes.
+
 ### How do I use it?
 
 `cat some_z80_rom.bin | ./bg80d.py`

@@ -1,3 +1,5 @@
+# FDCB-prefixed Z80 opcodes
+#
 #op|xtr| type | mnemonic            | dest |   src  | summary                                      | description
 00 | 1 | RLC  | LD B, RLC (IY+d)    |    B | (IY+d) | c=$(IY+d):8,$(IY+d)<rot=1,B=$(IY+d)          | Rotate left-circular memory $(IY+{d}), Load register B with memory $(IY+{d}) (undocumented)
 01 | 1 | RLC  | LD C, RLC (IY+d)    |    C | (IY+d) | c=$(IY+d):8,$(IY+d)<rot=1,C=$(IY+d)          | Rotate left-circular memory $(IY+{d}), Load register C with memory $(IY+{d}) (undocumented)

@@ -1,3 +1,6 @@
+# FD-prefixed Z80 opcodes
+#
+#op|xtr| type | mnemonic    | dest | src  | summary          | description
 00 | 0 |  NOP | NOP         |      |      | NOP              | NOP (undocumented)
 01 | 2 |   LD | LD BC, nn   |   BC |   nn | BC=nn            | Load BC (16bit) with {nn} (undocumented)
 02 | 0 |   LD | LD (BC), A  |  $BC |    A | $BC=A            | Load memory $BC with register A (undocumented)

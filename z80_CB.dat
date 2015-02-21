@@ -1,3 +1,5 @@
+# CB-prefixed Z80 opcodes
+#
 #op|xtr| type | mnemonic    | dest | src  | summary                | description
 00 | 0 | RLC  | RLC B       |      |      | c=B:8,B<rot=1          | Rotate left-circular register B
 01 | 0 | RLC  | RLC C       |      |      | c=C:8,C<rot=1          | Rotate left-circular register C

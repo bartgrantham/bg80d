@@ -1,3 +1,5 @@
+# DDCB-prefixed Z80 opcodes
+#
 #op|xtr| type | mnemonic            | dest |   src  | summary                                      | description
 00 | 1 | RLC  | LD B, RLC (IX+d)    |    B | (IX+d) | c=$(IX+d):8,$(IX+d)<rot=1,B=$(IX+d)          | Rotate left-circular memory $(IX+{d}), Load register B with memory $(IX+{d}) (undocumented)
 01 | 1 | RLC  | LD C, RLC (IX+d)    |    C | (IX+d) | c=$(IX+d):8,$(IX+d)<rot=1,C=$(IX+d)          | Rotate left-circular memory $(IX+{d}), Load register C with memory $(IX+{d}) (undocumented)
