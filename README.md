@@ -1,12 +1,12 @@
 # bg80d
 
-### What is it
+## What is it
 
 A simple Z80 disassembler, built to support my [Ms. Pac-Man Disassembly](http://bartgrantham.com/projects/ms-pacman-disassembly/) project.
 
 **WARNING** : This is beta code.  It works well for my limited use, but it's not particularly well-tested.
 
-### What's special about it?
+## What's special about it?
 
 Instead of attempting to decode the opcode in code (heh) I broke the Z80 opcode specifications into separate files, `*.dat` in the repo.  Because of CB/DD/ED/FD opcode prefixes there's still some decoding that happens on the fly, but the operands for a given instruction are just a table lookup.  This allows the disassemler to be small, **less than 200 lines**, most of which is parameter/input file parsing.
 
@@ -14,7 +14,7 @@ Also, it has some features that I've found helpful in my documenting old Z80 cod
 
 Finally I include, _as far as I know_, all the undocumented opcodes.  7 tables of prefixes * 256 = 1792 opcodes.
 
-### How do I use it?
+## How do I use it?
 
 `cat some_z80_rom.bin | ./bg80d.py`
 
