@@ -56,3 +56,13 @@ Other than that, for now you'll have to make do with `./bg80d.py --help`
 * possible that the ddcbnn opcodes are buggy
 * How about a labels.txt for better integration with asms?
   * Could do addr->label replacement on output
+
+
+## License
+
+[MIT License](http://www.opensource.org/licenses/mit-license.php)
+
+
+Enjoy!
+
+-Bart
