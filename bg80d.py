@@ -142,8 +142,8 @@ cur = 0
 stride = []
 uchars = stream_bytes(z80)
 for byte in uchars:
-    if cur in annotations:
-        print "\n".join(annotations[cur]),
+    if cur + offset in annotations:
+        print "\n".join(annotations[cur + offset]),
     if decodemask == {}:  # not using ranges/skips
         if start != None and cur < start:
             cur += 1
