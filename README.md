@@ -43,6 +43,7 @@ Other than that, for now you'll have to make do with `./bg80d.py --help`
 
 ## TODO
 
+* WTH am I doing with bytestream and stream_bytes?... duh!
 * better documentation!
 * allow user to provide formatting string
   * ie. "%-5s{addr} $%.4X{addr}   %-6s{opcode} %-15{mnemonic} %-11{param} ;  %{desc}"
