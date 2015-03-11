@@ -129,7 +129,20 @@ def print_disasm(cur, opcode, param, spec):
         nnaddr = "%.2x%.2x (%s)" % (param[1], param[0], str(param[0] + param[1]*256))
         desc = desc.replace('{nn}', nnaddr)
     elif spec['extra'] == 1 and 'd' in spec['mnemonic']:
-        desc = desc.replace('{d}', str(param[0]) if param[0] < 128 else str(-256 + param[0]))
+        # Compute relative jump. This is one-byte two's complement.
+        relative = param[0] if param[0] < 128 else -256 + param[0]
+
+        # Compute the jump destination as an absolute address, since we know it. It's
+        # relative to the PC address of the next instruction.
+        absolute = cur + 1 + len(param) + relative
+
+        # Special substitution if we're doing a PC-relative jump. Skip the "J" since it's
+        # only sometimes capitalized. Always show a + in front of the relative amount
+        # to clarify that it's relative.
+        desc = desc.replace('ump {d}', 'ump %+d (%d, $%.4X)' % (relative, absolute, absolute))
+
+        # Substitute other relative addresses (IX, IY, etc.).
+        desc = desc.replace('{d}', str(relative))
     print fmt % (cur, cur, opcode_str, spec['mnemonic'], param_str, desc)
 
 z80 = os.fdopen(sys.stdin.fileno(), 'rb', 1)
