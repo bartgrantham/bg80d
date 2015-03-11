@@ -101,7 +101,7 @@
 5c | 0 |   LD | LD E, H     |    E |    H | E=H              | Load register E with register H
 5d | 0 |   LD | LD E, L     |    E |    L | E=L              | Load register E with register L
 5e | 0 |   LD | LD E, (HL)  |    E |  $HL | E=$HL            | Load register E with memory $HL
-5f | 0 |   LD | LD E, E     |    E |    A | E=A              | Load register E with register A
+5f | 0 |   LD | LD E, A     |    E |    A | E=A              | Load register E with register A
 #op|xtr| type | mnemonic    | dest | src  | summary          | description
 60 | 0 |   LD | LD H, B     |    H |    B | H=B              | Load register H with register B
 61 | 0 |   LD | LD H, C     |    H |    C | H=C              | Load register H with register C
