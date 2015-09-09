@@ -53,11 +53,11 @@ def help():
                              ...will decode the bytes 0x400-0x440 in ROM, and the output will be shown addressed
                              from $8400 to $8440.
 --ranges=ranges.txt,...      Use a file that lists explicit ranges to decode.  Start and end override these ranges.
---skips=skip.txt,...          A file that lists extents that should be skipped entirely.
+--skips=skip.txt,...         A file that lists extents that should be skipped entirely.
 --strideN=stride.txt,...     Use a file that lists extents that should be output, undecoded, with a stride of N
                              Multiple entries can be provided, including multiple entries with the same stride.
                              Example: --stride3=tables_of_3byte_entries.txt
---annotations=anno.txt,...    Use a file that consists of a memory spec on a line by itself followed by an annotation
+--annotations=anno.txt,...   Use a file that consists of a memory spec on a line by itself followed by an annotation
                              to insert into that address"""
     exit()
 
