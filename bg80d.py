@@ -14,7 +14,7 @@ def read_spec(specname):
         if line == '': continue
         fields = list(field.strip() for field in line.strip().split(" | "))
         opcode = int(fields[0], 16)
-        spec[opcode] = dict(zip(['extra', 'optype', 'mnemonic', 'dst', 'src', 'summary', 'desc'],fields[1:]))
+        spec[opcode] = dict(zip(['extra', 'extra_type', 'optype', 'mnemonic', 'dst', 'src', 'summary', 'desc'],fields[1:]))
         spec[opcode]['extra'] = int(spec[opcode]['extra'])
     return spec
 
