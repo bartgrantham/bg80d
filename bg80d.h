@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdio.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 namespace bg80d {
@@ -13,19 +14,19 @@ namespace bg80d {
 
 typedef struct {
     const char * prefix;
-    __uint8_t opcode;
-    __int8_t extra_num;
-    __int8_t extra_type;  // nn, n, d, or d/n
+    uint8_t opcode;
+    int8_t extra_num;
+    int8_t extra_type;  // nn, n, d, or d/n
     const char * type;
     const char * dst;
     const char * src;
     const char * mnemonic;
     const char * summary;
     char description[120];
-    __int16_t parameter1;
-    __int8_t parameter2;
-    __uint16_t pc_after;
-    __uint16_t jump_addr;
+    int16_t parameter1;
+    int8_t parameter2;
+    uint16_t pc_after;
+    uint16_t jump_addr;
 } opcode_spec_t;
 
 static opcode_spec_t z80_NP[] = {
@@ -1836,13 +1837,13 @@ static opcode_spec_t z80_FDCB[] = {
 };
 
 
-opcode_spec_t * decode(__uint8_t (*reader)(void *), void * ctx, int PC)
+opcode_spec_t * decode(uint8_t (*reader)(void *), void * ctx, int PC)
 {
     static opcode_spec_t opcode;
     opcode_spec_t * opcode_bank;
-    __uint16_t bytes_read = 0;
+    uint16_t bytes_read = 0;
     char buffer[9];
-    __uint8_t z80byte;
+    uint8_t z80byte;
 
     opcode_bank = z80_NP;
     while(z80byte = reader(ctx), bytes_read++, ((z80byte == 0xCB) || (z80byte == 0xDD) || (z80byte == 0xED) || (z80byte == 0xFD))) {
