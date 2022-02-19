@@ -46,7 +46,7 @@ The C-based decoder function doesn't have the same functionality, but it will as
 
 Just `#include "bg80d.h"`, and then call `decode()` with a function pointer that reads and returns bytes, a `void *` for context for your function, and an `int` for the current PC (not critical, can be 0).  It will return an `opcode_spec` structure that has information about how that opcode was decoded (see bg80d.h for fields).
 
-The function you pass in must have the signature `__uint8_t myfunc(void *)`.  `decode()` will use this function, calling it with the supplied `void *`,  to obtain a stream of bytes as needed to determine prefix and nn/n/d/dn parameters.
+The function you pass in must have the signature `uint8_t myfunc(void *)`.  `decode()` will use this function, calling it with the supplied `void *`,  to obtain a stream of bytes as needed to determine prefix and nn/n/d/dn parameters.
 
 If you pass in PC, it will include the post-decoded PC in `opcode_spec->pc_after` (if you pass in 0, you'll simply get the number of bytes read).  It will also use the supplied PC to compute relative jumps for `opcode_spec->description`.
 
@@ -55,12 +55,12 @@ Example program:
 ```c
 #include "bg80d.h"
 
-__uint8_t rom[17] = {0xf3, 0x3e, 0x3f, 0xed, 0x47, 0xc3, 0x0b, 0x23, 0x77, 0x23, 0x10, 0xFC, 0xc9, 0xc3, 0x0e, 0x07, 0x00};
+uint8_t rom[17] = {0xf3, 0x3e, 0x3f, 0xed, 0x47, 0xc3, 0x0b, 0x23, 0x77, 0x23, 0x10, 0xFC, 0xc9, 0xc3, 0x0e, 0x07, 0x00};
 
 int addr = 0;
 
-__uint8_t romread(void * ctx) {
-    __uint8_t rval = rom[*(int *)ctx];
+uint8_t romread(void * ctx) {
+    uint8_t rval = rom[*(int *)ctx];
     (*((int *)ctx))++;
     return rval;
 }
